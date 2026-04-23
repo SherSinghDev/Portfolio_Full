@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sher Singh | Full Stack Developer</title>
+    <meta name="description"
+        content="Premium Full Stack Developer creating high-converting websites & full-stack applications. Specialized in React, Node.js, and Mobile Apps.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpeg" href="https://portfolioshersingh.netlify.app/assets/teamone-ec06e871.jpeg">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-cube">
+                <div class="cube-face front"></div>
+                <div class="cube-face back"></div>
+                <div class="cube-face right"></div>
+                <div class="cube-face left"></div>
+                <div class="cube-face top"></div>
+                <div class="cube-face bottom"></div>
+            </div>
+            <p class="preloader-text">Loading Experience...</p>
+        </div>
+    </div>
+
+    <!-- 3D Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand brand-logo" href="#home">
+                <span class="brand-bracket">&lt;</span>Sher<span class="brand-dot">.</span>Singh<span
+                    class="brand-bracket">/&gt;</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                id="navToggler">
+                <div class="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-glow ms-lg-3">Hire Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span class="badge-dot"></span> Full Stack & Mobile App Developer
+                        </div>
+                        <h1 class="hero-title">
+                            I build<br>
+                            <span class="gradient-text">High-Converting</span><br>
+                            <span class="typewriter" id="typewriter"></span>
+                        </h1>
+                        <p class="hero-desc">I help businesses transform ideas into powerful digital products — from
+                            responsive websites and full-stack web apps to cross-platform mobile applications.</p>
+                        <div class="hero-cta">
+                            <a href="#projects" class="btn btn-glow btn-lg">View Projects <i
+                                    class="fas fa-code ms-2"></i></a>
+                            <a href="#contact" class="btn btn-outline-glow btn-lg">Hire Me</a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="15">0</span><span class="stat-plus">+</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="100">0</span><span class="stat-plus">%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="2">0</span><span class="stat-plus">+</span>
+                                <span class="stat-label">Years Exp</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-3d-container" id="hero3d"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" id="scrollIndicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5" data-scroll="fade-right">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-card">
+                            <img src="https://portfolioshersingh.netlify.app/assets/teamone-ec06e871.jpeg"
+                                alt="Sher Singh" class="img-fluid rounded shadow-lg mb-4" loading="lazy">
+                            <div class="floating-badge badge-1"><i class="fab fa-react"></i></div>
+                            <div class="floating-badge badge-2"><i class="fab fa-node-js"></i></div>
+                            <div class="floating-badge badge-3"><i class="fab fa-js"></i></div>
+                            <div class="floating-badge badge-4"><i class="fas fa-mobile-alt"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-scroll="fade-left">
+                    <div class="section-label">About Me</div>
+                    <h2 class="section-title">Turning complex problems into<br><span class="gradient-text">Simple
+                            Solutions</span></h2>
+                    <p class="section-desc">I'm a passionate Full Stack Developer with expertise in building modern web
+                        applications that solve real‑world business challenges. My focus is on creating digital products
+                        that are not only visually stunning but also performant, scalable, and user‑centric.</p>
+                    <p class="section-desc">I help businesses increase their online presence, streamline operations, and
+                        boost revenue through custom web and mobile solutions. From dynamic booking systems and admin
+                        dashboards to cross-platform mobile apps.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item"><i class="fab fa-js-square"></i> JS & TS</div>
+                        <div class="highlight-item"><i class="fab fa-react"></i> React & Next.js</div>
+                        <div class="highlight-item"><i class="fab fa-node-js"></i> Node & Express</div>
+                        <div class="highlight-item"><i class="fas fa-database"></i> MongoDB & MySQL</div>
+                        <div class="highlight-item"><i class="fab fa-bootstrap"></i> Bootstrap & SCSS</div>
+                        <div class="highlight-item"><i class="fas fa-mobile-alt"></i> React Native</div>
+                        <div class="highlight-item"><i class="fab fa-docker"></i> Docker & AI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding section-dark" id="services">
+        <div class="container">
+            <div class="text-center mb-5" data-scroll="fade-up">
+                <div class="section-label">Services</div>
+                <h2 class="section-title">What I <span class="gradient-text">Offer</span></h2>
+            </div>
+            <div class="skills-grid" data-scroll="fade-up">
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h5>Web Development</h5>
+                    <p class="small text-secondary">Custom, responsive websites built with modern frameworks that engage
+                        visitors.</p>
+                </div>
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h5>Mobile Apps</h5>
+                    <p class="small text-secondary">Cross-platform applications for Android & iOS using React Native.
+                    </p>
+                </div>
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h5>Booking Systems</h5>
+                    <p class="small text-secondary">Interactive scheduling platforms with real‑time availability and
+                        payments.</p>
+                </div>
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h5>Admin Dashboards</h5>
+                    <p class="small text-secondary">Powerful panels with data visualization and user management.</p>
+                </div>
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon"><i class="fas fa-plug"></i></div>
+                    <h5>API Integration</h5>
+                    <p class="small text-secondary">Seamless integration of third‑party APIs to extend functionality.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section-padding" id="skills">
+        <div class="container">
+            <div class="text-center mb-5" data-scroll="fade-up">
+                <div class="section-label">Technical Proficiency</div>
+                <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="skill-card" data-tilt>
+                        <div class="skill-icon"><i class="fas fa-terminal"></i></div>
+                        <h5>Languages</h5>
+                        <div class="project-tags justify-content-center mt-3">
+                            <span>React Native</span><span>TypeScript</span><span>SQL</span><span>JavaScript</span><span>ES6</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="skill-card" data-tilt>
+                        <div class="skill-icon"><i class="fas fa-server"></i></div>
+                        <h5>Backend</h5>
+                        <div class="project-tags justify-content-center mt-3">
+                            <span>Node.js</span><span>Express.js</span><span>JWT Auth</span><span>REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="skill-card" data-tilt>
+                        <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+                        <h5>Frontend</h5>
+                        <div class="project-tags justify-content-center mt-3">
+                            <span>React JS</span><span>Next JS</span><span>Angular</span><span>HTML/CSS</span><span>SCSS</span><span>Bootstrap</span><span>jQuery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="skill-card" data-tilt>
+                        <div class="skill-icon"><i class="fas fa-database"></i></div>
+                        <h5>Databases</h5>
+                        <div class="project-tags justify-content-center mt-3">
+                            <span>MongoDB</span><span>MySQL</span><span>Sequelize</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="skill-card" data-tilt>
+                        <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                        <h5>Dev Tools</h5>
+                        <div class="project-tags justify-content-center mt-3">
+                            <span>Docker</span><span>Postman</span><span>Git/GitHub</span><span>VS Code</span><span>AI (ChatGPT)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="skill-card" data-tilt>
+                        <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                        <h5>Soft Skills</h5>
+                        <div class="project-tags justify-content-center mt-3">
+                            <span>Problem Solving</span><span>Teamwork</span><span>Leadership</span><span>Adaptability</span><span>Time Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section-padding" id="projects">
+        <div class="container">
+            <div class="text-center mb-5" data-scroll="fade-up">
+                <div class="section-label">Portfolio</div>
+                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+            </div>
+            <div class="row g-4 project-grid">
+                <!-- Skill Swap -->
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"
+                            style="background: url('assets/images/portfolio/1.png') center/cover;">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <span class="badge bg-primary">Mobile App</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>Skill Swap Community App</h4>
+                            <p>A cross-platform mobile app that enables users to exchange skills by teaching what they know and learning from others.</p>
+                            <div class="project-tags"><span>React Native</span><span>Node.js</span><span>TypeScript</span><span>MongoDB</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Used Gizmo -->
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"
+                            style="background: url('https://shersinghwebportfolio.netlify.app/assets/images/portfolio/used.png') center/cover;">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <span class="badge bg-primary">Mobile App</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>Used Gizmo App</h4>
+                            <p>Mobile application for buying and selling used gadgets with secure Razorpay integration and order management.</p>
+                            <div class="project-tags"><span>React Native</span><span>Node.js</span><span>TypeScript</span><span>MongoDB</span><span>Razorpay</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BSRF Parcel -->
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"
+                            style="background: url('https://logicwix.com/assets/images/project/bsrfindia.png') center/cover;">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://bsrfindia.com" target="_blank" class="project-link"><i
+                                            class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>Parcel Management System</h4>
+                            <p>Full-featured web application for managing parcels, shipment tracking, and admin control via REST APIs.</p>
+                            <div class="project-tags"><span>Node.js</span><span>Express.js</span><span>Bootstrap</span><span>MongoDB</span><span>VPS</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Yuvaan -->
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"
+                            style="background: url('https://logicwix.com/assets/images/project/yuvaan.png') center/cover;">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://yuvaanwaterproofingsolutions.com" target="_blank"
+                                        class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>Yuvaan Waterproofing</h4>
+                            <p>Modern responsive business website with SEO optimization and clean UI.</p>
+                            <div class="project-tags"><span>Website</span><span>SEO</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BSRF Solar -->
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"
+                            style="background: url('https://logicwix.com/assets/images/project/bsrf.png') center/cover;">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://www.bsrfsolar.com" target="_blank" class="project-link"><i
+                                            class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>BSRF Solar Services</h4>
+                            <p>Professional website for solar energy services with optimized performance.</p>
+                            <div class="project-tags"><span>Web Design</span><span>Solar</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Logic Alpha -->
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"
+                            style="background: url('https://logicwix.com/assets/images/project/logicalpha.png') center/cover;">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://logicalpha.netlify.app/" target="_blank" class="project-link"><i
+                                            class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>Logic Alpha IT</h4>
+                            <p>Dynamic web application showcasing services and client engagement.</p>
+                            <div class="project-tags"><span>Web App</span><span>Portfolio</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Harsh Tour -->
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"
+                            style="background: url('https://logicwix.com/assets/images/project/harshtourpng.png') center/cover;">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://harshtour.netlify.app" target="_blank" class="project-link"><i
+                                            class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>Harsh Tour & Travels</h4>
+                            <p>Travel company website with tour packages and booking features.</p>
+                            <div class="project-tags"><span>Web Dev</span><span>Booking</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CRM Sikshatech -->
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"
+                            style="background: linear-gradient(135deg, #12121a, #1a1a2e); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-users-cog" style="font-size: 5rem; color: var(--accent-1);"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <span class="badge bg-primary">Web App</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>CRM Sikshatech</h4>
+                            <p>Real-time CRM application to manage leads, customers, and follow-ups, improving operational efficiency.</p>
+                            <div class="project-tags"><span>React JS</span><span>Node.js</span><span>Sequelize</span><span>MySQL</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- LinkedIn Profile -->
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"
+                            style="background: linear-gradient(135deg, #0077b5, #00a0dc); display: flex; align-items: center; justify-content: center;">
+                            <i class="fab fa-linkedin" style="font-size: 5rem; color: white;"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://www.linkedin.com/in/sher-singh-445493386/" target="_blank"
+                                        class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>LinkedIn Profile</h4>
+                            <p>Professional network and work history. Connect with me for opportunities.</p>
+                            <div class="project-tags"><span>Professional</span><span>Networking</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- GitHub Profile -->
+                <div class="col-lg-4 col-md-6" data-scroll="fade-up">
+                    <div class="project-card" data-tilt>
+                        <div class="project-image"
+                            style="background: linear-gradient(135deg, #333, #000); display: flex; align-items: center; justify-content: center;">
+                            <i class="fab fa-github" style="font-size: 5rem; color: white;"></i>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/SherSinghDev" target="_blank" class="project-link"><i
+                                            class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h4>GitHub Repositories</h4>
+                            <p>Open-source contributions, personal projects, and code samples.</p>
+                            <div class="project-tags"><span>Code</span><span>Open Source</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates & Achievements -->
+    <section class="section-padding" id="certificates">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6" data-scroll="fade-right">
+                    <div class="section-label">Recognition</div>
+                    <h2 class="section-title">Certifications & <span class="gradient-text">Courses</span></h2>
+                    <div class="certificates-list mt-4">
+                        <div class="highlight-item mb-3 w-100">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <strong>Full Stack Web Development</strong><br>
+                                <small>Technosters</small>
+                            </div>
+                        </div>
+                        <div class="highlight-item mb-3 w-100">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <strong>UNXT by Unnati Course</strong><br>
+                                <small>SGBS</small>
+                            </div>
+                        </div>
+                        <div class="highlight-item mb-3 w-100">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <strong>Information Technology Fundamentals</strong><br>
+                                <small>IBM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-scroll="fade-left">
+                    <div class="section-label">Milestones</div>
+                    <h2 class="section-title">Key <span class="gradient-text">Achievements</span></h2>
+                    <div class="achievement-card glass-card h-100">
+                        <ul class="list-unstyled">
+                            <li class="mb-4 d-flex gap-3">
+                                <i class="fas fa-trophy text-warning mt-1"></i>
+                                <p class="mb-0">Earned positive client feedback and testimonials by delivering high-quality websites that exceeded expectations in design and functionality.</p>
+                            </li>
+                            <li class="mb-4 d-flex gap-3">
+                                <i class="fas fa-handshake text-info mt-1"></i>
+                                <p class="mb-0">Built and nurtured long-term client relationships by delivering continuous support and regular improvements to their digital platforms.</p>
+                            </li>
+                            <li class="d-flex gap-3">
+                                <i class="fas fa-rocket text-danger mt-1"></i>
+                                <p class="mb-0">Successfully deployed and managed complex full-stack applications on cloud platforms like Hostinger VPS and Render.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding section-dark" id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5" data-scroll="fade-up">
+                <div class="section-label">Reviews</div>
+                <h2 class="section-title">Client <span class="gradient-text">Feedback</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4" data-scroll="fade-up">
+                    <div class="testimonial-card" data-tilt>
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"Working with Shersingh was a smooth and professional experience. He delivered a website that
+                            looks stunning and performs flawlessly."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><img
+                                    src="https://www.bsrfsolar.com/assets/img/team/home-3/team1.jpeg"
+                                    class="img-fluid rounded-circle" alt="" loading="lazy"></div>
+                            <div><strong>Ravikant Kaushal</strong><br><small>MD, BSRF</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-scroll="fade-up">
+                    <div class="testimonial-card" data-tilt>
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"Sher Singh developed a website for our company that is modern, responsive, and
+                            SEO-optimized. Noticeable increase in client inquiries."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"><img
+                                    src="https://yuvaanwaterproofingsolutions.com/images/team/1.png"
+                                    class="img-fluid rounded-circle" alt="" loading="lazy"></div>
+                            <div><strong>Vikas Gautam</strong><br><small>Yuvaan Solutions</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-scroll="fade-up">
+                    <div class="testimonial-card" data-tilt>
+                        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p>"Highly professional and detail-oriented. Built a customized website tailored to our business
+                            requirements. Delivered on time."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">H</div>
+                            <div><strong>Harsh</strong><br><small>Tour & Travels Agency</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5" data-scroll="fade-right">
+                    <div class="section-label">Get In Touch</div>
+                    <h2 class="section-title">Let's Build<br><span class="gradient-text">Something Amazing</span></h2>
+                    <p class="section-desc">Have a project in mind? Reach out and let's discuss how we can bring your
+                        vision to life.</p>
+                    <div class="contact-info-list">
+                        <div class="contact-info-item"><i
+                                class="fas fa-envelope"></i><span>shersingh741730@gmail.com</span></div>
+                        <div class="contact-info-item"><i class="fas fa-phone"></i><span>+91 8474950220</span></div>
+                        <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><span>Available
+                                Worldwide</span></div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sher-singh-445493386/" target="_blank"
+                            class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/SherSinghDev" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://wa.me/918474950220" target="_blank" class="social-link"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-scroll="fade-left">
+                    <form class="contact-form glass-card" id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating-custom">
+                                    <input type="text" class="form-control" id="nameInput" placeholder="Your Name"
+                                        required>
+                                    <label for="nameInput">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating-custom">
+                                    <input type="email" class="form-control" id="emailInput" placeholder="Your Email"
+                                        required>
+                                    <label for="emailInput">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating-custom">
+                                    <textarea class="form-control" id="messageInput"
+                                        placeholder="Tell me about your project..." rows="5" required></textarea>
+                                    <label for="messageInput">Your Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-glow btn-lg w-100" id="submitBtn">
+                                    Send Message <i class="fas fa-paper-plane ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <span class="brand-bracket">&lt;</span>Sher<span class="brand-dot">.</span>Singh<span
+                        class="brand-bracket">/&gt;</span>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links justify-content-md-end mb-2">
+                        <a href="https://www.linkedin.com/in/sher-singh-445493386/" target="_blank"
+                            class="social-link-small"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/SherSinghDev" target="_blank" class="social-link-small"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://wa.me/918474950220" target="_blank" class="social-link-small"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p class="mb-0">&copy; 2026 Sher Singh. Crafted with <i class="fas fa-heart"
+                            style="color:#f5576c"></i></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
